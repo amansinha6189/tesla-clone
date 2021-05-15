@@ -9,7 +9,7 @@ function Section({
   rightBtnText,
 }) {
   return (
-    <Wrap>
+    <Wrap bgImage={backgroundImage}>
       <ItemText>
         <h1>{title}</h1>
         <p>{description}</p>
@@ -17,7 +17,7 @@ function Section({
       <Buttons>
         <ButtonGroup>
           <LeftButton>{leftBtnText}</LeftButton>
-          <RightButton>{rightBtnText}</RightButton>
+          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
         </ButtonGroup>
         <DownArrow src="images/down-arrow.svg" />
       </Buttons>
@@ -33,7 +33,7 @@ const Wrap = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("/images/model-s.jpg");
+  background-image: ${(props) => `url("/images/${props.bgImage}")`};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
